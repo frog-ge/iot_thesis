@@ -13,7 +13,7 @@ deploy_to_server:
     - chmod 600 ~/.ssh/rb222yr-ab226ei-key-pair.pem
     - ssh-keyscan -H 194.47.177.158 >> ~/.ssh/known_hosts
   script:
-    - ssh ubuntu@194.47.177.158 '
+    - ssh -i ~/.ssh/rb222yr-ab226ei-key-pair.pem ubuntu@194.47.177.158 '
         set -e
         cd ~/server_content &&
         git pull &&
