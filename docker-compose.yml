@@ -15,9 +15,9 @@ services:
             - 8086:8086
         environment:
             INFLUXDB_HTTP_AUTH_ENABLED: "true"
-            INFLUXDB_DB: ""             # THIS WILL BE REPLACED
-            INFLUXDB_ADMIN_USER: ""     # THIS WILL BE REPLACED
-            INFLUXDB_ADMIN_PASSWORD: "" # THIS WILL BE REPLACED
+            INFLUXDB_DB: "shm"             # THIS WILL BE REPLACED
+            INFLUXDB_ADMIN_USER: "admin"     # THIS WILL BE REPLACED
+            INFLUXDB_ADMIN_PASSWORD: "12345678" # THIS WILL BE REPLACED
         networks:
             - tig-net
         volumes:
@@ -29,7 +29,7 @@ services:
         ports:
             - 3000:3000
         environment:
-            GF_SERVER_ROOT_URL: "https://cscloud7-158.lnu.se/grafana"
+            GF_SERVER_ROOT_URL: "https://cscloud7-158.lnu.se"
             GF_SERVER_SERVE_FROM_SUB_PATH: "true"
             GF_SECURITY_ADMIN_USER: "admin" # Replace this before starting the containers
             GF_SECURITY_ADMIN_PASSWORD: "1234" # Replace this before starting the containers 
