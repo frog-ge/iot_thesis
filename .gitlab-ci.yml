@@ -1,0 +1,21 @@
+stages:
+  - deploy
+
+deploy_to_server:
+  stage: deploy
+  image: alpine:latest
+  only:
+    - main
+  before_script:
+    - apk add --no-cache openssh git
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/rb222yr-ab226ei-key-pair.pem
+    - chmod 600 ~/.ssh/rb222yr-ab226ei-key-pair.pem
+    - ssh-keyscan -H 194.47.177.158 >> ~/.ssh/known_hosts
+  script:
+    - ssh ubuntu@194.47.177.158'
+        cd ~/server_content &&
+        git pull &&
+        docker-compose pull &&
+        docker-compose up -d
+      '
