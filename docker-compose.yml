@@ -29,8 +29,8 @@ services:
         ports:
             - 3000:3000
         environment:
-            GF_SECURITY_ADMIN_USER: {GRAFANA_USER_NAME} # Replace this before starting the containers
-            GF_SECURITY_ADMIN_PASSWORD: {GRAFANA_PASSWORD} # Replace this before starting the containers 
+            GF_SECURITY_ADMIN_USER: "admin" # Replace this before starting the containers
+            GF_SECURITY_ADMIN_PASSWORD: "1234" # Replace this before starting the containers 
         networks:
             - tig-net
         volumes:
