@@ -14,9 +14,9 @@ deploy_to_server:
     - ssh-keyscan -H 194.47.177.158 >> ~/.ssh/known_hosts
   script:
     - ssh -i ~/.ssh/rb222yr-ab226ei-key-pair.pem ubuntu@194.47.177.158 '
-        set -e
-        cd ~/server_content &&
-        git pull &&
-        docker-compose pull &&
+        set -e;
+        cd ~/server_content;
+        git pull;
+        docker-compose pull;
         docker-compose up -d
       '
